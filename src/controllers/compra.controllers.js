@@ -3,9 +3,6 @@ const Compra = require('../models/Compra');
 const Carrito = require('../models/Carrito');
 const sendEmail = require('../utils/sendEmail');
 const Ropa = require('../models/Ropa');
-
-const Versatil = require('../models/Versatil');
-const Genero = require('../models/Genero');
 const ImgRopa = require('../models/ImgRopa');
 const Usuario = require('../models/Usuario');
 const getAll = catchError(async(req, res) => {
