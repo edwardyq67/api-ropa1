@@ -9,7 +9,7 @@ const getAll = catchError(async(req, res) => {
     const results = await Carrito.findAll({
         include:[{
             model:Ropa,
-            attributes:{exclude:['createdAt','updatedAt',"id","versatilId","generoId"]},
+            attributes:{exclude:['createdAt','updatedAt',"versatilId","generoId"]},
             include:[{
                 model:Versatil,
                 attributes:["versatilidad"],
@@ -22,7 +22,7 @@ const getAll = catchError(async(req, res) => {
                 model:ImgRopa,
                 attributes:["url"]
             }
-    ]}],attributes:{exclude:['createdAt','updatedAt',"id","usuarioId","ropaId"]},
+    ]}],attributes:{exclude:['createdAt','updatedAt',"usuarioId","ropaId"]},
        where:{usuarioId:req.usuario.id}
     });
     

@@ -4,12 +4,12 @@ const verifyJWT = require('../utils/verifyJWT');
 const routerGenero = express.Router();
 
 routerGenero.route('/')
-    .get(verifyJWT,getAll)
+    .get(getAll)
     .post(verifyJWT,create);
 
 routerGenero.route('/:id')
-    .get(verifyJWT,getOne)
-    .delete(verifyJWT,remove)
+    .get(getOne)
+    .delete(remove)
     .put(verifyJWT,update);
 
 module.exports = routerGenero;

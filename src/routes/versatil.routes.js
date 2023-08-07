@@ -4,11 +4,11 @@ const verifyJWT = require('../utils/verifyJWT');
 const routerVersatil = express.Router();
 
 routerVersatil.route('/')
-    .get(verifyJWT,getAll)
+    .get(getAll)
     .post(verifyJWT,create);
 
 routerVersatil.route('/:id')
-    .get(verifyJWT,getOne)
+    .get(getOne)
     .delete(verifyJWT,remove)
     .put(verifyJWT,update);
 

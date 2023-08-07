@@ -5,20 +5,20 @@ const Genero = require('../models/Genero');
 const ImgRopa = require('../models/ImgRopa');
 const {Op}=require('sequelize')
 const getAll = catchError(async(req, res) => {
-    const {name,marca,generoId,versatilId}=req.query
+    const {color,name,marca,generoId,versatilId}=req.query
     const where={}
     if (marca) where.marca={[Op.iLike]:`%${marca}`}
     if(generoId) where.generoId=generoId
-    if (name) where.name={[Op.iLike]:`%${name}`}
+    if (color) where.color={[Op.iLike]:`%${color}`}
     if(versatilId) where.versatilId=versatilId
     const results = await Ropa.findAll({
     
         include:[{
             model : Versatil,
-            attributes:{exclude:['createdAt','updatedAt',"id"]}
+            attributes:{exclude:['createdAt','updatedAt']}
         },{
             model : Genero,
-            attributes:{exclude:['createdAt','updatedAt','id']}
+            attributes:{exclude:['createdAt','updatedAt']}
         },{
             model:ImgRopa,
            
@@ -35,7 +35,7 @@ const create = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await Ropa.findByPk(id);
+    const result = await Ropa.findByPk(id,{include:[ImgRopa,Versatil]});
     if(!result) return res.sendStatus(404);
     return res.json(result);
 });
