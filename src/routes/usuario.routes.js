@@ -4,7 +4,7 @@ const verifyJWT = require('../utils/verifyJWT');
 const routerUsuario = express.Router();
 
 routerUsuario.route('/')
-    .get(verifyJWT,getAll)
+    .get(getAll)
     .post(create);
 routerUsuario.route('/login')
     .post(login)
