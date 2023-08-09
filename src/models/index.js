@@ -1,7 +1,11 @@
 const Carrito = require("./Carrito");
 const Compra = require("./Compra");
 const Genero = require("./Genero");
+const ImgProyectos = require("./ImgProyectos");
+
 const ImgRopa = require("./ImgRopa");
+const Lenguajes = require("./Lenguaje");
+const Proyectos = require("./Proyectos");
 const Ropa = require("./Ropa");
 const Usuario = require("./Usuario");
 const Versatil = require("./Versatil");
@@ -26,3 +30,11 @@ Compra.belongsTo(Usuario)
 
 Ropa.hasMany(Compra)
 Compra.belongsTo(Ropa)
+
+//portafolio
+Proyectos.hasMany(ImgProyectos)
+ImgProyectos.hasMany(Proyectos);
+
+Proyectos.belongsToMany(Lenguajes, {through: 'proyectoLenguaje'})
+Lenguajes.belongsToMany(Proyectos, {through: 'proyectoLenguaje'})
+

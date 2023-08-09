@@ -60,7 +60,7 @@ const setImgRopa=catchError(async(req,res)=>{
     const ropa=await Ropa.findByPk(id)
     if(!ropa)return res.json({message:"no existe"}).status(404)
     await ropa.setImgRopas(req.body)//el modelo de NewsImg
-    const image=await news.getImgRopas()
+    const image=await ropa.getImgRopas()
     return res.json(image)
 
 })

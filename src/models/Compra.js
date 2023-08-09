@@ -6,6 +6,7 @@ const Compra = sequelize.define('compra', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    
     //usuarioId
     //RopaId
 });

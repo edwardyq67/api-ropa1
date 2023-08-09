@@ -5,7 +5,7 @@ const verifyJWT = require('../utils/verifyJWT');
 const routerImgRopa = express.Router();
 
 routerImgRopa.route('/')
-    .get(verifyJWT,getAll)
+    .get(getAll)
     .post(verifyJWT,upload.single('image'), create)
 
 routerImgRopa.route('/:id')
