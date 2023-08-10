@@ -4,7 +4,7 @@ const sendEmail = require('../utils/sendEmail');
 const sayHi = catchError(async(req, res) => {
     const{nombre,correo,telefono,asunto}=req.body
     await sendEmail({
-            to: "correo@gmail.com",
+            to: "edwardyq200167@gmail.com",
             subject: "trabajo desde mi portafolio",
             html: `<h2>Te busca ${nombre} para trabajar</h2>
                 <h4><b>CORREO: </b>${correo}</h4>
