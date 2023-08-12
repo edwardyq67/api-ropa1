@@ -33,7 +33,7 @@ Compra.belongsTo(Ropa)
 
 //portafolio
 Proyectos.hasMany(ImgProyectos)
-ImgProyectos.hasMany(Proyectos);
+ImgProyectos.belongsTo(Proyectos);
 
 Proyectos.belongsToMany(Lenguajes, {through: 'proyectoLenguaje'})
 Lenguajes.belongsToMany(Proyectos, {through: 'proyectoLenguaje'})

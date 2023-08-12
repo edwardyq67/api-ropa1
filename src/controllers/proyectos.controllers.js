@@ -4,7 +4,7 @@ const Lenguajes = require('../models/Lenguaje');
 const ImgProyectos = require('../models/ImgProyectos');
 
 const getAll = catchError(async(req, res) => {
-    const results = await Proyectos.findAll({include:[Lenguajes]});
+    const results = await Proyectos.findAll({include:[Lenguajes,ImgProyectos]});
     return res.json(results);
 });
 
@@ -15,7 +15,7 @@ const create = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await Proyectos.findByPk(id);
+    const result = await Proyectos.findByPk(id,{include:[Lenguajes,ImgProyectos]});
     if(!result) return res.sendStatus(404);
     return res.json(result);
 });
@@ -43,11 +43,20 @@ const setLenguajeProyectos=catchError(async(req,res)=>{
     const lenguaje=await proyecto.getLenguajes()
     return res.json(lenguaje)
 })
+const setimagenProyecto=catchError(async(req,res)=>{
+    const {id}=req.params
+    const proyecto=await Proyectos.findByPk(id)
+    if(!proyecto)return res.json({message:"no existe"}).status(204)
+    await proyecto.setImgProyectos(req.body)
+    const imagen=await proyecto.getImgProyectos()
+    return res.json(imagen)
+})
 module.exports = {
     getAll,
     create,
     getOne,
     remove,
     update,
-    setLenguajeProyectos
+    setLenguajeProyectos,
+    setimagenProyecto
 }

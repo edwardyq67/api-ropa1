@@ -1,4 +1,4 @@
-const { getAll, create, getOne, remove, update,setLenguajeProyectos } = require('../controllers/proyectos.controllers');
+const { getAll, create, getOne, remove,setimagenProyecto, update,setLenguajeProyectos } = require('../controllers/proyectos.controllers');
 const express = require('express');
 
 const routerProyectos = express.Router();
@@ -13,4 +13,6 @@ routerProyectos.route('/:id')
     .put(update);
 routerProyectos.route('/:id/lenguaje')
     .post(setLenguajeProyectos)
+routerProyectos.route('/:id/imagen')
+    .post(setimagenProyecto)
 module.exports = routerProyectos;
