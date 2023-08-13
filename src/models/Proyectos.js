@@ -10,6 +10,10 @@ const Proyectos = sequelize.define('proyectos', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    link: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     //img
     //lenguajes
 });
