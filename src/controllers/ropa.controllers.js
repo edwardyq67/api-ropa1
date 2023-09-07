@@ -7,9 +7,9 @@ const {Op}=require('sequelize')
 const getAll = catchError(async(req, res) => {
     const {color,name,marca,generoId,versatilId}=req.query
     const where={}
-    if (marca) where.marca={[Op.iLike]:`%${marca}`}
+    if (marca) where.marca={[Op.iLike]:`%${marca}%`}
     if(generoId) where.generoId=generoId
-    if (color) where.color={[Op.iLike]:`%${color}`}
+    if (color) where.color={[Op.iLike]:`%${color}%`}
     if(versatilId) where.versatilId=versatilId
     const results = await Ropa.findAll({
     

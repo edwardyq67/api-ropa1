@@ -5,7 +5,7 @@ const routerGenero = express.Router();
 
 routerGenero.route('/')
     .get(getAll)
-    .post(verifyJWT,create);
+    .post(create);
 
 routerGenero.route('/:id')
     .get(getOne)

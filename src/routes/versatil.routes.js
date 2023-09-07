@@ -5,7 +5,7 @@ const routerVersatil = express.Router();
 
 routerVersatil.route('/')
     .get(getAll)
-    .post(verifyJWT,create);
+    .post(create);
 
 routerVersatil.route('/:id')
     .get(getOne)

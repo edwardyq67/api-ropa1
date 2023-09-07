@@ -1,6 +1,9 @@
 const Carrito = require("./Carrito");
+const Comida = require("./Comida");
+const ComidaLugar = require("./ComidaLugar");
 const Compra = require("./Compra");
 const Genero = require("./Genero");
+const ImgComida = require("./ImgComida");
 const ImgProyectos = require("./ImgProyectos");
 
 const ImgRopa = require("./ImgRopa");
@@ -37,4 +40,11 @@ ImgProyectos.belongsTo(Proyectos);
 
 Proyectos.belongsToMany(Lenguajes, {through: 'proyectoLenguaje'})
 Lenguajes.belongsToMany(Proyectos, {through: 'proyectoLenguaje'})
+
+//comida
+ImgComida.hasMany(Comida)
+Comida.belongsTo(ImgComida);
+
+ComidaLugar.hasMany(Comida)
+Comida.belongsTo(ComidaLugar);
 

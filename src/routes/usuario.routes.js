@@ -1,6 +1,5 @@
 const { getAll, create, getOne, remove, update,login } = require('../controllers/usuario.controllers');
 const express = require('express');
-const verifyJWT = require('../utils/verifyJWT');
 const routerUsuario = express.Router();
 
 routerUsuario.route('/')

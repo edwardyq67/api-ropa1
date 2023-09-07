@@ -6,7 +6,7 @@ const routerImgRopa = express.Router();
 
 routerImgRopa.route('/')
     .get(getAll)
-    .post(verifyJWT,upload.single('image'), create)
+    .post(upload.single('image'), create)
 
 routerImgRopa.route('/:id')
     .delete(verifyJWT,remove)
